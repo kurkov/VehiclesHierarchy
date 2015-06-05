@@ -47,4 +47,10 @@ public class VehiclesHierarchy {
   }
 }
 
+/* ----OUTPUT----
+Created a new vehicle: Car.
+Created a new vehicle: Hydroplane.
+Car "Tesla" has 4 wheels.
+Hydroplane "PowerBoat" has 0 wheels.
+*/
 
