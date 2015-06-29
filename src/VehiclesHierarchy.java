@@ -1,50 +1,50 @@
 public class VehiclesHierarchy {
 
-  public static class Vehicle {
-    String name;
-    int numberOfWheels;
-  }
-
-  public interface VehicleInterface {
-    void getWheels();
-  }
-
-  public static class Car extends Vehicle implements VehicleInterface {
-
-    Car(String name) {
-      this.name = name;
-      numberOfWheels = 4;
-      System.out.println("Created a new vehicle: Car.");
+    public abstract static class Vehicle {
+        String name;
+        int numberOfWheels;
     }
 
-    @Override
-    public void getWheels() {
-      System.out.println("Car \"" + name + "\" has " + numberOfWheels + " wheels.");
-    }
-  }
-
-  public static class Hydroplane extends Vehicle implements VehicleInterface {
-
-    Hydroplane(String name) {
-      this.name = name;
-      numberOfWheels = 0;
-      System.out.println("Created a new vehicle: Hydroplane.");
+    public interface VehicleInterface {
+        void displayWheels();
     }
 
-    @Override
-    public void getWheels() {
-      System.out.println("Hydroplane \"" + name + "\" has " + numberOfWheels + " wheels.");
+    public static class Car extends Vehicle implements VehicleInterface {
+
+        Car(String name) {
+            this.name = name;
+            numberOfWheels = 4;
+            System.out.println("Created a new vehicle: Car.");
+        }
+
+        @Override
+        public void displayWheels() {
+            System.out.format("Car \"%s\" has %d wheels.%n", name, numberOfWheels);
+        }
     }
-  }
 
-  public static void main(String[] args) {
+    public static class Hydroplane extends Vehicle implements VehicleInterface {
 
-    Car car = new Car("Tesla");
-    Hydroplane hydroplane = new Hydroplane("PowerBoat");
+        Hydroplane(String name) {
+            this.name = name;
+            numberOfWheels = 0;
+            System.out.println("Created a new vehicle: Hydroplane.");
+        }
 
-    car.getWheels();
-    hydroplane.getWheels();
-  }
+        @Override
+        public void displayWheels() {
+            System.out.format("Hydroplane \"%s\" has %d wheels.%n", name, numberOfWheels);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Car car = new Car("Tesla");
+        Hydroplane hydroplane = new Hydroplane("PowerBoat");
+
+        car.displayWheels();
+        hydroplane.displayWheels();
+    }
 }
 
 /* ----OUTPUT----
